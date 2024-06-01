@@ -2,9 +2,9 @@
 </script>
 
 <template>
-  <div>
+  <div class="">
 
-        <ul class="bg-zinc-950 text-yellow-500 font-bold p-10 mb-4">
+        <ul class="bg-cyan-950 text-lime-500 font-bold font-mono p-10 mb-4 flex row w-full gap-4">
           <li>
             <NuxtLink href="/login" class="">Login</NuxtLink>
           </li>
@@ -13,7 +13,7 @@
           </li>
         </ul>
 
-    <h2 class="font-medium ">Guest Layout</h2>
+    <h2 class="font-medium font-sans ">Guest Layout</h2>
       <slot />
 
   </div>

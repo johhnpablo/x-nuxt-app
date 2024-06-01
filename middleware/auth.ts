@@ -1,5 +1,5 @@
 export default defineNuxtRouteMiddleware( () => {
-   const authenticated = true;
+   const authenticated = false;
 
    if (!authenticated) {
        return navigateTo('/login', {replace: true});
