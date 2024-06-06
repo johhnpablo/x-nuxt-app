@@ -24,10 +24,8 @@
     console.log(user);
   }
   const getUser = async () => {
-    await useApi("/sanctum/csrf-cookie");
-    const user = await useApi('/api/user');
 
-    console.log(user.data.value);
+    console.log(authStore.user);
   }
 </script>
 

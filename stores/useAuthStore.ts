@@ -1,13 +1,16 @@
+import type {User} from "~/types/user";
+
 export const useAuthStore = defineStore('auth', () => {
 
-    const user = ref();
+    const user = ref<User|null>(null);
     const isLoggedIn = computed(() => !!user.value);
 
     async function fetchUser () {
-        const response = await fetch('/api/user');
+        const response = await useApi('/api/user');
 
-        return response;
-    }
+        user.value = response.data.value as User;
+
+            }
     async function login(form: any) {
 
         await useApi('/sanctum/csrf-cookie');
@@ -17,8 +20,10 @@ export const useAuthStore = defineStore('auth', () => {
             body: form,
         });
 
+        await fetchUser();
+
         return response;
     }
 
-    return {login};
+    return {login, user, isLoggedIn, fetchUser};
 });
